@@ -7,6 +7,3 @@
 /build
 /captures
 .externalNativeBuild
-libs/
-src/main/java/
-app/src/main/java/

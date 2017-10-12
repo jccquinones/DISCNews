@@ -1,0 +1,48 @@
+// Calculo del version code
+def BUILD_DATE_TIME = new Date().format("yywwuHHmm").toInteger()
+
+// Nombre del build
+def BUILD_NAME = "J"
+
+logger.lifecycle("Using buildDateTime: ${BUILD_DATE_TIME}")
+
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 26
+    buildToolsVersion "26.0.0"
+    defaultConfig {
+        applicationId "cl.ucn.disc.dam.discnews"
+        minSdkVersion 21
+        targetSdkVersion 26
+        versionCode BUILD_DATE_TIME
+        versionName "${BUILD_NAME}-${BUILD_DATE_TIME}"
+        testInstrumentationRunner "android.suppgitort.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled true
+            shrinkResources true
+            zipAlignEnabled true
+            crunchPngs true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            debuggable true
+            minifyEnabled false
+            shrinkResources false
+            zipAlignEnabled false
+            crunchPngs false
+            versionNameSuffix "-debug"
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.android.support:appcompat-v7:26.1.0'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation ('com.android.support.test.espresso:espresso-core:3.0.1', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+}

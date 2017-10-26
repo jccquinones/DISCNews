@@ -6,6 +6,7 @@ import org.apache.commons.lang3.builder.ToStringStyle;
 import java.time.LocalDateTime;
 
 import lombok.Getter;
+import lombok.Builder;
 
 /**
  * Representa una Noticia en un instante de tiempo
@@ -13,7 +14,7 @@ import lombok.Getter;
  *
  * @author JOHN.
  */
-
+@Builder
 public final class Noticia {
 
     /**

@@ -1,5 +1,8 @@
 package cl.ucn.disc.dam.discnews;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
 import org.assertj.core.api.Assertions;
 import org.junit.Test;
 
@@ -12,13 +15,43 @@ import cl.ucn.disc.dam.discnews.model.Noticia;
  */
 public class NoticiaTest {
 
+    /**
+     * Des-Serializador GSON
+     */
+    private static final Gson gson = new GsonBuilder()
+            .serializeNulls()
+            .setPrettyPrinting() // TODO: Eliminar en modo produccion
+            .create();
+
     @Test
     public void testContructor() {
-        final Noticia noticia = new Noticia();
+        final Noticia noticia =
+                Noticia.builder()
+                .titulo("Titulo de la noticia")
+                .autor("John Quinones")
+                .resumen("Este es un resumen")
+                .build();
+
         Assertions.assertThat(noticia)
                 .isNotNull();
 
         Assertions.assertThat(noticia.getTitulo())
-                .isNull();
+                .isNotBlank();
+
+        // Serializar a json
+        final String json = gson.toJson(noticia);
+        System.out.println(json);
+        Assertions.assertThat(json)
+                .isNotBlank();
+
+        // Des-serializar
+        final Noticia noti = gson.fromJson(json,Noticia.class);
+        Assertions.assertThat(noti)
+                .isNotNull();
+
+        Assertions.assertThat(noti)
+                .isEqualToComparingFieldByField(noticia);
+
+
     }
 }

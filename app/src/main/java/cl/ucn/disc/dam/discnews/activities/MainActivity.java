@@ -26,7 +26,7 @@ import lombok.extern.slf4j.Slf4j;
 public final class MainActivity extends ListActivity implements GetSaveArticlesTask.TaskListener, ShakeDetector.Listener {
 
     /**
-     * Adapter de {@link cl.ucn.disc.dam.discnews.model.Article).
+     * Adapter de {@link cl.ucn.disc.dam.discnews.model.Article}.
      */
     private BaseAdapter articleAdapter;
 
@@ -244,5 +244,4 @@ public final class MainActivity extends ListActivity implements GetSaveArticlesT
         return super.onOptionsItemSelected(item);
 
     }
-
 }

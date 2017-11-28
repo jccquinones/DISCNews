@@ -48,7 +48,7 @@ public final class ArticleController {
     /**
      * URL desde donde se obtendran los {@link Article}
      */
-    private static final String url = "https://newsapi.org/v1/articles?source=espn&sortBy=latest&apiKey=135ccdb34eda4bbf9c10d3d0923eedab";
+    private static final String url = "https://newsapi.org/v2/top-headlines?";
 
     /**
      * Cliente OkHttp

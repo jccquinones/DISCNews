@@ -7,6 +7,10 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+import com.facebook.drawee.view.SimpleDraweeView;
+
+import org.ocpsoft.prettytime.PrettyTime;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,6 +24,11 @@ import lombok.extern.slf4j.Slf4j;
  */
 @Slf4j
 public final class ArticleAdapter extends BaseAdapter {
+
+    /**
+     * Formateador de fecha
+     */
+    public static final PrettyTime PRETTY_TIME = new PrettyTime();
 
     /**
      * Listado de Articulo
@@ -110,10 +119,10 @@ public final class ArticleAdapter extends BaseAdapter {
             viewHolder.title.setText(article.getTitle());
             viewHolder.description.setText(article.getDescription());
 
-            //viewHolder.date.setText(PRETTY_TIME.format(article.getPublishedAt()));
-            //viewHolder.source.setText(article.getSource().getName());
+            viewHolder.date.setText(PRETTY_TIME.format(article.getPublishedAt()));
+            viewHolder.source.setText(article.getSource().getName());
 
-            //viewHolder.image.setImageURI(article.getUrlToImage());
+            viewHolder.image.setImageURI(article.getUrlToImage());
 
         }
 
@@ -152,14 +161,14 @@ public final class ArticleAdapter extends BaseAdapter {
         TextView title;
         TextView description;
         TextView date;
-        //SimpleDraweeView image;
+        SimpleDraweeView image;
         TextView source;
 
         ViewHolder(final View view) {
             this.title = view.findViewById(R.id.ra_title);
             this.description = view.findViewById(R.id.ra_description);
             this.date = view.findViewById(R.id.ra_date);
-            //this.image = view.findViewById(R.id.ra_image);
+            this.image = view.findViewById(R.id.ra_image);
             this.source = view.findViewById(R.id.ra_source);
         }
 

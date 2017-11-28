@@ -1,5 +1,8 @@
 package cl.ucn.disc.dam.discnews.controller;
 
+import cl.ucn.disc.dam.discnews.model.Article;
+import cl.ucn.disc.dam.discnews.model.NewsApi;
+
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonDeserializationContext;
@@ -15,9 +18,8 @@ import java.lang.reflect.Type;
 import java.util.Date;
 import java.util.List;
 
-import cl.ucn.disc.dam.discnews.adapters.ArticleAdapter;
-import cl.ucn.disc.dam.discnews.model.Article;
-import cl.ucn.disc.dam.discnews.model.NewsApi;
+
+
 import lombok.extern.slf4j.Slf4j;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -82,7 +84,7 @@ public final class ArticleController {
         for (final Article article : newsApi.getArticles()) {
 
             // Fix del articulo
-            //Article.fix(article);
+            Article.fix(article);
             // log.debug("DateFixed: {}", article.getPublishedAtDateTime());
 
         }
@@ -128,11 +130,11 @@ public final class ArticleController {
                     .description(getString(jsonObject, "description"))
                     .url(getString(jsonObject, "url"))
                     .urlToImage(getString(jsonObject,"urlToImage"))
-                    //.publishedAt(publishedAt)
-                    //.source(context.deserialize(jsonObject.get("source"), Article.Source.class))
+                    .publishedAt(publishedAt)
+                    .source(context.deserialize(jsonObject.get("source"), Article.Source.class))
                     .build();
 
-            //Article.fix(article);
+            Article.fix(article);
 
             return article;
         }

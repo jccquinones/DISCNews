@@ -1,5 +1,8 @@
 package cl.ucn.disc.dam.discnews.model;
 
+import cl.ucn.disc.dam.discnews.dao.AppDatabase;
+import cl.ucn.disc.dam.discnews.dao.SourceConverter;
+
 import com.raizlabs.android.dbflow.annotation.Column;
 import com.raizlabs.android.dbflow.annotation.PrimaryKey;
 import com.raizlabs.android.dbflow.annotation.Table;
@@ -10,7 +13,7 @@ import org.apache.commons.lang3.builder.ToStringStyle;
 import java.util.Date;
 import java.util.UUID;
 
-import cl.ucn.disc.dam.discnews.dao.AppDatabase;
+
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -21,7 +24,6 @@ import lombok.experimental.FieldDefaults;
 /**
  * Clase generada via http://www.jsonschema2pojo.org/
  */
-
 @Builder
 @Table(database = AppDatabase.class)
 @AllArgsConstructor
@@ -86,16 +88,6 @@ public final class Article {
 
 
     /**
-     * @return representacion en formato String de Article
-     */
-    @Override
-    public String toString(){
-        return ToStringBuilder
-                .reflectionToString(this,
-                        ToStringStyle.MULTI_LINE_STYLE);
-    }
-
-    /**
      * Fix the article
      *
      * @param article to fix.
@@ -114,6 +106,7 @@ public final class Article {
             article.author = "unknow";
         }
     }
+
 
     /**
      * Internal article source.

@@ -20,11 +20,12 @@ import java.util.Collections;
 
 import cl.ucn.disc.dam.discnews.R;
 import cl.ucn.disc.dam.discnews.model.Article;
+import cl.ucn.disc.dam.discnews.model.Article_Table;
 import lombok.NonNull;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * Created by JOHN on 28-11-2017.
+ * @author JOHN on 28-11-2017.
  */
 @Slf4j
 public final class ArticleDBFlowAdapter extends BaseAdapter {

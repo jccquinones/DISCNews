@@ -5,7 +5,9 @@ import android.app.Activity;
 import android.app.ListActivity;
 import android.content.Context;
 import android.graphics.drawable.GradientDrawable;
+import android.hardware.SensorManager;
 import android.os.Bundle;
+import android.os.Vibrator;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -16,6 +18,7 @@ import com.squareup.seismic.ShakeDetector;
 
 import cl.ucn.disc.dam.discnews.R;
 
+import cl.ucn.disc.dam.discnews.adapters.ArticleDBFlowAdapter;
 import cl.ucn.disc.dam.discnews.tasks.GetSaveArticlesTask;
 import lombok.extern.slf4j.Slf4j;
 
@@ -124,7 +127,7 @@ public final class MainActivity extends ListActivity implements GetSaveArticlesT
 
     /**
      * Metodo que realiza la ejecucion en segundo plano de la tarea que obtiene los
-     * {@link com.durrutia.dnews.model.Article} desde Internet.
+     * {@link cl.ucn.disc.dam.discnews.model.Article} desde Internet.
      */
     private void runGetAndSaveArticlesTask() {
 
@@ -145,7 +148,7 @@ public final class MainActivity extends ListActivity implements GetSaveArticlesT
     }
 
     /**
-     * Aviso que se termino la obtencion de los {@link com.durrutia.dnews.model.Article}.
+     * Aviso que se termino la obtencion de los {@link cl.ucn.disc.dam.discnews.model.Article}.
      *
      * @param newsArticles numero de articulos nuevos obtenidos.
      */
@@ -207,7 +210,7 @@ public final class MainActivity extends ListActivity implements GetSaveArticlesT
     @Override
     public boolean onCreateOptionsMenu(final Menu menu) {
         final MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.main_manu, menu);
+        inflater.inflate(R.menu.main_menu, menu);
         return true;
     }
 

@@ -3,14 +3,17 @@ package cl.ucn.disc.dam.discnews.activities;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.app.ListActivity;
+import android.content.Context;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.BaseAdapter;
+import android.widget.Toast;
 
 import cl.ucn.disc.dam.discnews.R;
+
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
@@ -46,7 +49,7 @@ public final class MainActivity extends ListActivity {
         // Si no hay articulos en el adaptador (y por lo tanto en la base de datos) ..
         if (this.articleAdapter.isEmpty()) {
             // .. ejecuto la tarea para obtenerlas.
-         //   this.runGetAndSaveArticlesTask();
+            //this.runGetAndSaveArticlesTask();
         }
 
     }

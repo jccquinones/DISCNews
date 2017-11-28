@@ -96,9 +96,9 @@ public final class ArticleAdapter extends BaseAdapter {
         final View view;
 
         if (convertView == null) {
-            //view = LayoutInflater.from(context).inflate(R.layout.row_article, parent, false);
-            //viewHolder = new ViewHolder(view);
-            //view.setTag(viewHolder);
+            view = LayoutInflater.from(context).inflate(R.layout.row_article, parent, false);
+            viewHolder = new ViewHolder(view);
+            view.setTag(viewHolder);
         } else {
             view = convertView;
             viewHolder = (ViewHolder) convertView.getTag();
@@ -107,8 +107,8 @@ public final class ArticleAdapter extends BaseAdapter {
         final Article article = this.getItem(position);
         if (article != null) {
 
-            //viewHolder.title.setText(article.getTitle());
-            //viewHolder.description.setText(article.getDescription());
+            viewHolder.title.setText(article.getTitle());
+            viewHolder.description.setText(article.getDescription());
 
             //viewHolder.date.setText(PRETTY_TIME.format(article.getPublishedAt()));
             //viewHolder.source.setText(article.getSource().getName());
@@ -117,8 +117,7 @@ public final class ArticleAdapter extends BaseAdapter {
 
         }
 
-        //return view;
-        return null;
+        return view;
     }
 
     /**
@@ -157,11 +156,11 @@ public final class ArticleAdapter extends BaseAdapter {
         TextView source;
 
         ViewHolder(final View view) {
-            /*this.title = view.findViewById(R.id.ra_title);
+            this.title = view.findViewById(R.id.ra_title);
             this.description = view.findViewById(R.id.ra_description);
             this.date = view.findViewById(R.id.ra_date);
             //this.image = view.findViewById(R.id.ra_image);
-            this.source = view.findViewById(R.id.ra_source);*/
+            this.source = view.findViewById(R.id.ra_source);
         }
 
     }

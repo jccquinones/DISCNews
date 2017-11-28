@@ -50,13 +50,12 @@ public final class GetArticlesTask extends AsyncTask<Void, Void, List<Article>> 
         // FIXME: Sera atributo de la clase?
         final ArticleController articleController = new ArticleController();
 
-        //try {
+        try {
             // Obtengo los articles desde internet via el controlador
-            //return articleController.getArticles("techcrunch,ars-technica,engadget,buzzfeed,wired");
+            return articleController.getArticles("techcrunch,ars-technica,engadget,buzzfeed,wired");
+        } catch (IOException e) {
             return null;
-        //} catch (IOException e) {
-          //  return null;
-        //}
+        }
     }
 
     /**

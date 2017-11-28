@@ -24,7 +24,7 @@ import okhttp3.Request;
 import okhttp3.Response;
 
 /**
- * Clase Principal que contiene los metodos de acceso a las noticias.
+ * Clase Principal que contiene los metodos de acceso a los articulos.
  */
 @Slf4j
 public final class ArticleController {
@@ -34,7 +34,7 @@ public final class ArticleController {
      */
     private static final Gson gson = new GsonBuilder()
             .serializeNulls()
-            //.registerTypeAdapter(Article.class, new ArticleAdapter())
+            .registerTypeAdapter(Article.class, new ArticleAdapter())
             .setPrettyPrinting() // TODO: Eliminar en modo produccion
             .create();
 
@@ -46,7 +46,7 @@ public final class ArticleController {
     /**
      * URL desde donde se obtendran los {@link Article}
      */
-    final String url = "https://newsapi.org/v1/articles?source=espn&sortBy=latest&apiKey=135ccdb34eda4bbf9c10d3d0923eedab";
+    private static final String url = "https://newsapi.org/v1/articles?source=espn&sortBy=latest&apiKey=135ccdb34eda4bbf9c10d3d0923eedab";
 
     /**
      * Cliente OkHttp
@@ -57,19 +57,19 @@ public final class ArticleController {
      * Obtencion de {@link Article}s desde Internet.
      * @return the {@link List} of {@link Article}.
      */
-    public List<Article> getArticles() throws IOException{
+    public List<Article> getArticles(final String source) throws IOException {
 
         // Cronometro
         final StopWatch stopWatch = StopWatch.createStarted();
 
         // URL to get news
-        //final String apiUrl = url + "sources=" + source + "&sortBy=latest&apiKey=" + apiKey;
+        final String apiUrl = url + "sources=" + source + "&sortBy=latest&apiKey=" + apiKey;
 
-        //log.debug("Getting Articles, using url: {}", apiUrl);
+        log.debug("Getting Articles, using url: {}", apiUrl);
 
         // Peticion
         final Request request = new Request.Builder()
-          //      .url(apiUrl)
+                .url(apiUrl)
                 .build();
 
         // Respuesta

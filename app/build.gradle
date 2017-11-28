@@ -27,37 +27,53 @@ android {
     }
     buildTypes {
         release {
-            minifyEnabled true
-            shrinkResources true
-            zipAlignEnabled true
-            crunchPngs true
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            postprocessing {
+                crunchPngs true
+                removeUnusedCode true
+                removeUnusedResources true
+                obfuscate true
+                optimizeCode true
+                zipAlignEnabled true
+                proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            }
+            versionNameSuffix "-release"
         }
         debug {
-            debuggable true
-            minifyEnabled false
-            shrinkResources false
-            zipAlignEnabled false
-            crunchPngs false
+            postprocessing {
+                crunchPngs false
+                removeUnusedCode false
+                removeUnusedResources false
+                obfuscate false
+                optimizeCode false
+                zipAlignEnabled false
+                proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            }
             versionNameSuffix "-debug"
         }
-        compileOptions {
-            sourceCompatibility JavaVersion.VERSION_1_8
-            targetCompatibility JavaVersion.VERSION_1_8
-        }
-        packagingOptions {
-            exclude 'META-INF/LGPL2.1'
-            exclude 'META-INF/LICENSE'
-            exclude 'META-INF/LICENSE.txt'
-            exclude 'META-INF/NOTICE'
-            exclude 'META-INF/NOTICE.txt'
-        }
-        lintOptions {
-            abortOnError false
-            // disale 'InlinedApi', 'AllowBackup'
-            showAll true
-            htmlReport true
-        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    packagingOptions {
+        exclude 'META-INF/LGPL2.1'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/NOTICE.txt'
+    }
+    lintOptions {
+        abortOnError false
+        // disale 'InlinedApi', 'AllowBackup'
+        showAll true
+        htmlReport true
+    }
+}
+
+// File output name
+android.applicationVariants.all { variant ->
+    variant.outputs.all {
+        outputFileName = "dnews-${variant.versionCode}-${variant.name}.apk"
     }
 }
 

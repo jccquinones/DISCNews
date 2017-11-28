@@ -47,10 +47,10 @@ public final class MainActivity extends ListActivity {
         this.getListView().setDividerHeight(5);
 
         // Si no hay articulos en el adaptador (y por lo tanto en la base de datos) ..
-        if (this.articleAdapter.isEmpty()) {
+        /*if (this.articleAdapter.isEmpty()) {
             // .. ejecuto la tarea para obtenerlas.
             //this.runGetAndSaveArticlesTask();
-        }
+        }*/
 
     }
 

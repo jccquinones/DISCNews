@@ -130,4 +130,15 @@ dependencies {
     implementation 'com.android.support:support-core-utils:26.1.0'
     implementation 'com.github.stfalcon:frescoimageviewer:0.5.0'
 
+    // DBFLow
+    annotationProcessor 'com.github.Raizlabs.DBFlow:dbflow-processor:4.1.2'
+    implementation 'com.github.Raizlabs.DBFlow:dbflow-core:4.1.2'
+    implementation 'com.github.Raizlabs.DBFlow:dbflow:4.1.2'
+
+    // Device-Year
+    implementation 'com.facebook.device.yearclass:yearclass:2.0.0'
+
+    // https://github.com/square/seismic
+    implementation 'com.squareup:seismic:1.0.2'
+
 }

@@ -8,6 +8,7 @@ import java.util.List;
 
 import cl.ucn.disc.dam.discnews.model.Article;
 import cl.ucn.disc.dam.discnews.model.NewsApi;
+import lombok.extern.slf4j.Slf4j;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
@@ -15,11 +16,11 @@ import okhttp3.Response;
 /**
  * Clase Principal que contiene los metodos de acceso a las noticias.
  */
-
-public class NewsController {
+@Slf4j
+public final class ArticleController {
 
     /**
-     *
+     * Des-Serializador GSON
      */
     public static final Gson gson = new GsonBuilder()
             .serializeNulls()

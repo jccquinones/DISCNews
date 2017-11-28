@@ -12,10 +12,12 @@ import lombok.Getter;
 /**
  * Clase generada via http://www.jsonschema2pojo.org/
  */
-
 @Builder
-public class NewsApi {
+public final class NewsApi {
 
+    /**
+     * Status
+     */
     @Getter
     private String status;
 

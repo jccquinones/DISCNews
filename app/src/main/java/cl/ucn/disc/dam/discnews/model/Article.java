@@ -13,21 +13,39 @@ import lombok.Getter;
 @Builder
 public final class Article {
 
+    /**
+     * Author
+     */
     @Getter
     private String author;
 
+    /**
+     * Title
+     */
     @Getter
     private String title;
 
+    /**
+     * Description
+     */
     @Getter
     private String description;
 
+    /**
+     * URL: main link
+     */
     @Getter
     private String url;
 
+    /**
+     * URL: link to image
+     */
     @Getter
     private String urlToImage;
 
+    /**
+     * Date, example: 2017-11-16T19:40:25Z
+     */
     @Getter
     private String publishedAt;
 

@@ -1,12 +1,16 @@
 package cl.ucn.disc.dam.discnews.model;
 
+import com.raizlabs.android.dbflow.annotation.Column;
+import com.raizlabs.android.dbflow.annotation.PrimaryKey;
 import com.raizlabs.android.dbflow.annotation.Table;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 
 import java.util.Date;
+import java.util.UUID;
 
+import cl.ucn.disc.dam.discnews.dao.AppDatabase;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -19,52 +23,67 @@ import lombok.experimental.FieldDefaults;
  */
 
 @Builder
-//@Table(database = AppDatabase.class)
+@Table(database = AppDatabase.class)
 @AllArgsConstructor
 @NoArgsConstructor
 public final class Article {
 
     /**
+     * ID
+     */
+    @PrimaryKey
+    @Getter
+    UUID id;
+
+    /**
      * Author
      */
     @Getter
-    private String author;
+    @Column
+    String author;
 
     /**
      * Title
      */
     @Getter
-    private String title;
+    @Column
+    String title;
 
     /**
      * Description
      */
     @Getter
-    private String description;
+    @Column
+    String description;
 
     /**
      * URL: main link
      */
     @Getter
-    private String url;
+    @Column
+    String url;
 
     /**
      * URL: link to image
      */
     @Getter
-    private String urlToImage;
+    @Column
+    String urlToImage;
 
     /**
-     * Date, example: 2017-11-16T19:40:25Z
+     * Date: 2017-11-16T19:40:25Z
      */
     @Getter
-    private Date publishedAt;
+    @Column
+    Date publishedAt;
 
     /**
      * Source
      */
     @Getter
+    @Column(typeConverter = SourceConverter.class)
     Source source;
+
 
     /**
      * @return representacion en formato String de Article
@@ -89,7 +108,7 @@ public final class Article {
         sb.append(article.publishedAt);
 
         // Calculate ID from title + publishedAt
-        //article.id = UUID.nameUUIDFromBytes(sb.toString().getBytes());
+        article.id = UUID.nameUUIDFromBytes(sb.toString().getBytes());
 
         if (article.author == null) {
             article.author = "unknow";

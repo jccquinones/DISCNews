@@ -19,6 +19,12 @@ android {
         versionName "${BUILD_NAME}-${BUILD_DATE_TIME}"
         testInstrumentationRunner "android.suppgitort.test.runner.AndroidJUnitRunner"
     }
+    // Always show the result of every unit test, even if it passes.
+    testOptions.unitTests.all {
+        testLogging {
+            events 'passed', 'skipped', 'failed', 'standardOut', 'standardError'
+        }
+    }
     buildTypes {
         release {
             minifyEnabled true

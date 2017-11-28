@@ -1,13 +1,17 @@
 package cl.ucn.disc.dam.discnews.model;
 
+import com.raizlabs.android.dbflow.annotation.Table;
+
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 
 import java.util.Date;
 
 import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.experimental.FieldDefaults;
 
 /**
@@ -15,6 +19,9 @@ import lombok.experimental.FieldDefaults;
  */
 
 @Builder
+//@Table(database = AppDatabase.class)
+@AllArgsConstructor
+@NoArgsConstructor
 public final class Article {
 
     /**

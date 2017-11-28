@@ -3,6 +3,7 @@
     package="cl.ucn.disc.dam.discnews">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.VIBRATE"/>
 
     <application
         android:name=".App"

@@ -22,6 +22,10 @@ import cl.ucn.disc.dam.discnews.adapters.ArticleDBFlowAdapter;
 import cl.ucn.disc.dam.discnews.tasks.GetSaveArticlesTask;
 import lombok.extern.slf4j.Slf4j;
 
+/**
+ *
+ * @author JOHN.
+ */
 @Slf4j
 public final class MainActivity extends ListActivity implements GetSaveArticlesTask.TaskListener, ShakeDetector.Listener {
 

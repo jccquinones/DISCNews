@@ -6,7 +6,7 @@ import org.joda.time.format.ISODateTimeFormat;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * Created by JOHN on 28-11-2017.
+ * @author JOHN.
  */
 @Slf4j
 public final class EntityUtils {

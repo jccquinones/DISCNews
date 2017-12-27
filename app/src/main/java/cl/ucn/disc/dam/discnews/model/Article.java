@@ -23,6 +23,7 @@ import lombok.experimental.FieldDefaults;
 
 /**
  * Clase generada via http://www.jsonschema2pojo.org/
+ * @author JOHN.
  */
 @Builder
 @Table(database = AppDatabase.class)

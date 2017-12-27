@@ -3,8 +3,10 @@ package cl.ucn.disc.dam.discnews.dao;
 import com.raizlabs.android.dbflow.annotation.Database;
 
 /**
- * Created by JOHN on 28-11-2017.
+ *
+ * @author JOHN.
  */
+
 @Database(version = AppDatabase.VERSION)
 public final class AppDatabase {
 

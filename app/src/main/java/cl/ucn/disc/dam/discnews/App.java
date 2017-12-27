@@ -15,7 +15,7 @@ import cl.ucn.disc.dam.discnews.dao.AppDatabase;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * Created by JOHN on 28-11-2017.
+ * @author JOHN on 28-11-2017.
  */
 @Slf4j
 public final class App extends Application {

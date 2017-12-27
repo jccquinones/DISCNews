@@ -27,6 +27,8 @@ import okhttp3.Response;
 
 /**
  * Clase Principal que contiene los metodos de acceso a los articulos.
+ * @author JOHN
+ *
  */
 @Slf4j
 public final class ArticleController {

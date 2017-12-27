@@ -11,6 +11,7 @@ import lombok.Getter;
 
 /**
  * Clase generada via http://www.jsonschema2pojo.org/
+ * @author JOHN.
  */
 @Builder
 public final class NewsApi {

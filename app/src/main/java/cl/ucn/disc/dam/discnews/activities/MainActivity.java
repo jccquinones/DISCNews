@@ -58,7 +58,7 @@ public final class MainActivity extends ListActivity implements GetSaveArticlesT
         }
 
         // Row division
-        int[] colors = {0, 0xFFFF0000, 0};
+        int[] colors = {0, 0xFF00FFFF, 0};
         this.getListView().setDivider(new GradientDrawable(GradientDrawable.Orientation.RIGHT_LEFT, colors));
         this.getListView().setDividerHeight(5);
 
